@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page with Validation</title>
+    <!-- Add the Bootstrap CSS link and Font Awesome for icons -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body style="background-color: rgba(234, 234, 238, 0.778);">
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <img src="https://thumbs.dreamstime.com/b/young-man-using-laptop-living-room-smiling-55272372.jpg" alt="man with laptop" height="100%" width="570px">
+            </div>
+            <div class="col-md-6" style="background-color: rgba(240, 240, 241, 0.778);">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-user"></i> Login
+                    </div>
+                 <div class="card-body">
+                        <form action="db.php" method="POST">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username"/>
+                                    <span id="usernameError" class="error"></span><br>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                    </div>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" />
+                                    <span id="passwordError" class="error"></span><br>
+                                </div>
+
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">Remember me</label>
+                            </div>
+                            <center><button type="submit" class="btn btn-primary" onclick="return validateForm()">Login</button></center><br>
+                            <a herf="#">Sign Up</a><span class="tab" style="display: inline-block;margin-left: 100px"></span>or login with  
+                            <span class="tab" style="display: inline-block;margin-left: 20px"></span>
+                             <i class="fab fa-whatsapp">
+                                <span class="tab" style="display: inline-block;margin-left: 30px"></span>
+                             </i><i class="fab fa-facebook">
+                                <span class="tab" style="display: inline-block;margin-left: 30px"></span>
+                             </i><i class="fab fa-twitter"></i>
+                        </form>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+
+    <!-- Add the Bootstrap JS and Popper.js scripts (order matters) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+      function validateForm() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    if (username === "" || password === "") {
+        alert("Username and password are required.");
+        return false;
+    }
+
+    return true;
+}
+
+document.getElementById("loginForm").onsubmit = validateForm;
+
+    </script>
+</body>
+</html>
